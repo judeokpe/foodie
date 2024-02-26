@@ -1,0 +1,110 @@
+
+'use client'
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm } from "react-hook-form"
+import { z } from "zod"
+
+import { Button } from "@/components/ui/button"
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form"
+import { Input } from "@/components/ui/input"
+import { ArrowBigRight } from "lucide-react"
+import Link from "next/link"
+import { BsGoogle } from "react-icons/bs"
+
+const formSchema = z.object({
+    email: z.string().min(2, {
+      message: "Email must be valid.",
+    }),
+    password: z.string().min(2, {
+      message: "Password must be at least 8 characters.",
+    }),
+    username: z.string().min(2, {
+      message: "Username must be at least 8 characters.",
+    }),
+  })
+
+const SignUp = () => {
+    const form = useForm<z.infer<typeof formSchema>>({
+        resolver: zodResolver(formSchema),
+        defaultValues: {
+          email: "",
+          username:"",
+          password: "",
+        },
+      })
+
+      const onSubmit = (values: z.infer<typeof formSchema>)=>{
+        console.log(values)
+      }
+
+    return ( 
+        <div className="md:max-w-md w-full mx-2 text-black md:mx-auto bg-white p-4 mt-16 rounded-md h-full  ">
+            <h1 className="text-yellow-700 text-center text-2xl font-bold">Register</h1>
+        <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
+        <FormField
+            control={form.control}
+            name="username"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Username</FormLabel>
+                <FormControl>
+                  <Input placeholder="Enter Your username" {...field} />
+                </FormControl>
+                
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Email</FormLabel>
+                <FormControl>
+                  <Input placeholder="email" {...field} />
+                </FormControl>
+                
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="password"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Password</FormLabel>
+                <FormControl>
+                  <Input placeholder="Enter Your password" {...field} />
+                </FormControl>
+                
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <Button className="w-full" variant={'secondary'} type="submit">Submit</Button>
+        </form>
+      </Form>
+      <p className="text-gray-500 mt-4 flex items-center" >Already have an account? <Link  href={'/sign-in'} className="underline flex items-center mr-2 ml-2">Sign In<ArrowBigRight /></Link></p>
+      <div className="mt-2">
+        <p className="mb-2 text-center">Or Sign with google</p>
+        <Button className="w-full ring text-xl" variant={'ghost'}>
+            <BsGoogle color="red" size={24} className=" mr-4"/>
+            Google
+        </Button>
+      </div>
+      </div>
+     );
+}
+ 
+export default SignUp;
