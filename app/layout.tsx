@@ -20,8 +20,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn(inter.className, 'bg-black text-white')}>
+        <header className="">
         <NavBar />
+        </header>
+       
+        <main className="py-6">
         {children}
+        </main>
+        
         <Footer />
         </body>
     </html>

@@ -14,12 +14,12 @@ const NavLink = [
 
 const NavBar = () => {
   return (
-    <nav className="border-b shadow-md md:p-4 p-2 flex items-center justify-between">
+    <div className="md:px-20 w-full border-b shadow-md md:py-4 py-4 fixed top-0 z-50 flex items-center justify-between px-4 ">
       <div className="">
-        <Link href='/' className="text-yellow-700 text-2xl">Foodie</Link>
+        <Link href='/' className="text-yellow-700 md:text-3xl text-2xl">Foodie</Link>
       </div>
 
-      <div className="md:flex items-center justify-center gap-3 hidden">
+      <div className="md:flex md:text-xl items-center justify-center gap-3 hidden">
       {NavLink.map((link)=>{
         return(
           <Link className=" " href={link.url} key={link.url}>
@@ -27,16 +27,16 @@ const NavBar = () => {
         </Link>
         )
       })}
-      <Link href='/book' className="border border-yellow-700 p-1" >
+      <Link href='/book' className="text-sm border  border-yellow-700 p-1" >
         Book a Table
       </Link>
       </div>
-      <div className="flex items-center gap-2">
-       <Link href={'/sign-in'}>
-       <Button variant={"ghost"}>Sign In</Button>
+      <div className="flex items-center gap-2 md:text-3xl">
+       <Link className="md:text-xl" href={'/sign-in'}>
+       <Button className="md:text-xl " variant={"ghost"}>Sign In</Button>
        </Link> 
        <Link href={'/sign-up'}>
-       <Button variant={"secondary"}>Sign Up</Button>
+       <Button className="md:text-xl" variant={"secondary"}>Sign Up</Button>
        </Link>
       </div>
 
@@ -44,7 +44,7 @@ const NavBar = () => {
        <MobileMenu  />
       </div>
       
-    </nav>
+    </div>
   )
 }
 

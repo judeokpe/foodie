@@ -17,6 +17,7 @@ const config = {
         "2xl": "1400px",
       },
     },
+    
     extend: {
       colors: {
         border: "hsl(var(--border))",
@@ -75,6 +76,7 @@ const config = {
     },
   },
   plugins: [require("tailwindcss-animate")],
+ 
 } satisfies Config
 
 export default config
