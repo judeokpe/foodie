@@ -24,7 +24,7 @@ export default function RootLayout({
         <NavBar />
         </header>
        
-        <main className="py-6">
+        <main className="py-6 mt-16 ">
         {children}
         </main>
         

@@ -13,7 +13,7 @@ const Hero = () => {
     <h1 className="md:text-4xl text-2xl uppercase text-yellow-300 ">
       <TypeAnimation 
         sequence={[
-          "Welcome to Foodeie Resturant!",
+          "Welcome to Foodie Resturant!",
           2000,
           "Bon appétit!",
           2000

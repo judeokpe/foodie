@@ -46,10 +46,10 @@ const SignUp = () => {
       }
 
     return ( 
-        <div className="md:max-w-2xl w-full mx-2 text-black md:mx-auto bg-white p-4 mt-16 rounded-md h-full  ">
+        <div className="md:max-w-2xl w-full mx-2 text-black md:mx-auto bg-white px-4 py-8 rounded-md h-full  ">
             <h1 className="text-yellow-700 text-center text-2xl font-bold">Register</h1>
         <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2 md:text-4xl">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 md:text-4xl">
         <FormField
             control={form.control}
             name="username"
@@ -85,7 +85,7 @@ const SignUp = () => {
               <FormItem>
                 <FormLabel className="md:text-2xl">Password</FormLabel>
                 <FormControl>
-                  <Input placeholder="Enter Your password" {...field} />
+                  <Input placeholder="Enter Your password" {...field} type="password" />
                 </FormControl>
                 
                 <FormMessage />

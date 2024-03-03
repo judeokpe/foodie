@@ -23,7 +23,7 @@ const formSchema = z.object({
       message: "Username must be at least 2 characters.",
     }),
     password: z.string().min(2, {
-      message: "Username must be at least 8 characters.",
+      message: "Password must be at least 8 characters.",
     }),
   })
 
@@ -41,10 +41,10 @@ const SignIn = () => {
       }
 
     return ( 
-        <div className="md:max-w-4xl w-full mx-2 text-black md:mx-auto bg-white p-4 mt-16 rounded-md h-full  ">
+        <div className="md:max-w-2xl w-full mx-2 text-black md:mx-auto bg-white px-4 py-8 rounded-md h-full  ">
             <h1 className="text-yellow-700 text-2xl text-center font-bold">Login</h1>
         <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2 md:text-4xl">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 md:text-4xl">
           <FormField
             control={form.control}
             name="email"
@@ -67,7 +67,7 @@ const SignIn = () => {
               <FormItem>
                 <FormLabel className="md:text-2xl" >Password</FormLabel>
                 <FormControl>
-                  <Input placeholder="Enter Your password" {...field} />
+                  <Input placeholder="Enter Your password" {...field}  type="password" />
                 </FormControl>
                 
                 <FormMessage />
